@@ -314,7 +314,14 @@ footer{text-align:center;font-size:.78rem;color:var(--ink-soft);margin-top:36px;
       </div>
     </div>
     <div class="q">
-      <div class="q-label"><span class="q-num">Q24.</span> 한 달 평균 전기요금은 얼마 정도인가요?</div>
+      <div class="q-label"><span class="q-num">Q24.</span> 한 달 평균 전기요금은 얼마 정도인가요? <span class="tip" data-tip="전기요금은 많이 쓸수록 단가가 비싸지는 '누진제'가 적용돼요. 그래서 요금이 올라가면 배출량이 더 가파르게 늘어납니다.">?</span></div>
+      <div class="q-desc">가정용 전기는 <b>누진제</b>가 적용돼요. 많이 쓸수록 1kWh당 요금이 비싸져서, 요금이 오를수록 사용량과 배출량이 더 크게 늘어납니다. <span class="toggle-link" onclick="toggleNuj()" style="color:var(--sky);cursor:pointer;text-decoration:underline;font-weight:600;">누진 단계 자세히 보기</span></div>
+      <div id="nujBox" style="display:none;background:var(--sky-soft);border:1px solid #c5ddf2;border-radius:10px;padding:12px 14px;margin:6px 0 10px;font-size:.82rem;line-height:1.75;color:#2b4a63;">
+        <b>주택용 저압 3단계 누진제 (2025년 기준)</b><br>
+        · 1단계 (0~200kWh): 1kWh당 약 99원<br>
+        · 2단계 (201~400kWh): 1kWh당 약 188원<br>
+        · 3단계 (400kWh 초과): 1kWh당 약 307원
+      </div>
       <div class="opts row" data-radio="elecbill" id="elecbillOpts"></div>
     </div>
     <div class="q">
@@ -413,10 +420,14 @@ const SHEETS_URL = ""; // 구글시트 제출용 Apps Script URL (배포 후 입
 // 수원시 행정동 (구별)
 const DONG = {
   "장안구":["파장동","율천동","정자1동","정자2동","정자3동","영화동","송죽동","조원1동","조원2동","연무동"],
-  "권선구":["세류1동","세류2동","세류3동","평동","서둔동","구운동","금곡동","호매실동","권선1동","권선2동","곡선동","입북동","당수동"],
-  "팔달구":["매교동","매산동","고등동","화서1동","화서2동","지동","우만1동","우만2동","인계동","행궁동"],
-  "영통구":["매탄1동","매탄2동","매탄3동","매탄4동","원천동","광교1동","광교2동","영통1동","영통2동","영통3동","망포1동","망포2동"]
+  "권선구":["세류1동","세류2동","세류3동","평동","서둔동","구운동","금곡동","호매실동","권선1동","권선2동","곡선동","입북동"],
+  "팔달구":["행궁동","매교동","매산동","고등동","화서1동","화서2동","지동","우만1동","우만2동","인계동"],
+  "영통구":["매탄1동","매탄2동","매탄3동","매탄4동","원천동","영통1동","영통2동","영통3동","망포1동","망포2동","광교1동","광교2동"]
 };
+function toggleNuj(){
+  const b=document.getElementById("nujBox");
+  b.style.display = (b.style.display==="none"||!b.style.display) ? "block" : "none";
+}
 function fillDong(){
   const gu = document.getElementById("gu").value;
   const sel = document.getElementById("dong");
@@ -445,8 +456,9 @@ const HEAT = {
   elec:{label:"전기",f:0.00047,use:[450,710,950,1250,1260]}
 };
 const COST_LABELS = ["10만원 이하","11~20만원","21~30만원","31~40만원","40만원 이상"];
-// 전기요금 구간 계수 (전기 배출계수 0.00047 × 사용량 추정)
-const ELEC = {f:0.00047, use:[450,710,950,1250,1260]};
+// 전기요금 전용 구간 (3/5/10/15만원). 한전 요금표로 각 구간 상한금액→kWh 역산(기존 계산기 방식과 통일), 계수 0.00047 tCO2/kWh
+const ELEC_LABELS = ["3만원 이하","3~5만원","5~10만원","10~15만원","15만원 이상"];
+const ELEC = {f:0.00047, use:[216,306,462,602,657]};
 
 // 여가 (2가지 선택) 원단위 톤/년
 const LEISURE = [["tv","TV·OTT 시청",0.11],["mobile","휴대폰 게임·영상·SNS·인터넷",0.45],
@@ -464,7 +476,7 @@ function buildUI(){
   document.getElementById("transportGrid").innerHTML = TRANSPORT.map(t=>`
     <div class="time-item"><label>${t.label}${t.pending?" *":""}</label>
       <input type="number" id="tr_${t.id}" min="0" step="0.5" placeholder="시간/주" oninput="live()"></div>`).join("");
-  document.getElementById("elecbillOpts").innerHTML = COST_LABELS.map((l,i)=>`
+  document.getElementById("elecbillOpts").innerHTML = ELEC_LABELS.map((l,i)=>`
     <label class="opt"><input type="radio" name="elecbill" value="${i}"> ${l}</label>`).join("");
   document.getElementById("heattypeOpts").innerHTML = Object.entries(HEAT).map(([k,v])=>`
     <label class="opt"><input type="radio" name="heattype" value="${k}"> ${v.label}</label>`).join("");
@@ -534,7 +546,7 @@ function computeAll(){
   if(area){const perc=area/info.household;const v=perc*0.14;sec.주거+=v;
     rows.push(["주거","주거면적",`${fmt(area,1)}평(1인당 ${fmt(perc,1)}평)`,v]);}
   const eb=radioVal("elecbill");
-  if(eb!==null){const v=ELEC.f*ELEC.use[+eb];sec.주거+=v;rows.push(["주거","전기요금",COST_LABELS[+eb],v]);}
+  if(eb!==null){const v=ELEC.f*ELEC.use[+eb];sec.주거+=v;rows.push(["주거","전기요금",ELEC_LABELS[+eb],v]);}
   const ht=radioVal("heattype"),hc=radioVal("heatcost");
   if(ht&&hc!==null){const H=HEAT[ht];const v=H.f*H.use[+hc];sec.주거+=v;rows.push(["주거","난방",`${H.label}·${COST_LABELS[+hc]}`,v]);}
   const solar=radioVal("solar");
