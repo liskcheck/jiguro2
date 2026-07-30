@@ -565,7 +565,53 @@ function computeAll(){
   const travel=num("travel");if(travel){const v=travel*0.085;sec.여가+=v;rows.push(["여가","여행 숙박",`${travel}일`,v]);}
 
   const total=Object.values(sec).reduce((a,b)=>a+b,0);
-  lastResult={info,sec,total,rows};
+
+  // 각 질문의 원본 응답값 (미응답은 빈칸). 시트에 문항별로 다 쌓기 위함
+  const applSel = [];
+  document.querySelectorAll(".applChk").forEach(chk=>{
+    if(chk.checked){const i=+chk.dataset.i;const cnt=Math.max(1,Math.round(num2(`.applCnt[data-i="${i}"]`)));
+      applSel.push(APPLIANCES[i][0]+cnt+"대");}});
+  const leisureSel = [];
+  document.querySelectorAll(".leisureChk").forEach(chk=>{
+    if(chk.checked){const L=LEISURE.find(x=>x[0]===chk.value);leisureSel.push(L[1]);}});
+  const solarV=radioVal("solar");
+  const solarLabel = solarV==="mini"?"베란다 미니태양광":(solarV==="roof"?"옥상 태양광":(solarV==="none"?"사용 안 함":""));
+  const htV=radioVal("heattype");
+  const raw={
+    Q9_식단: radioVal("diet")?dietLabel(parseFloat(radioVal("diet"))):"",
+    Q10_커피_잔일: num("coffee")||"",
+    Q11_외식_회주: num("eatout")||"",
+    Q12_음식쓰레기: radioVal("foodwaste")===null?"":(radioVal("foodwaste")==="0.001"?"예":"아니오"),
+    Q13_텀블러_회주: num("cup")||"",
+    Q14_다회용기_회주: num("container")||"",
+    Q15_장바구니_회주: num("bag")||"",
+    Q16_옷_벌: num("clothes")||"",
+    Q17_전자제품: applSel.join(", "),
+    Q18_고양이: num("cat")||"",
+    Q19_강아지: num("dog")||"",
+    Q20_지하철_시간주: num("tr_subway")||"",
+    Q20_버스_시간주: num("tr_bus")||"",
+    Q20_기차_시간주: num("tr_train")||"",
+    Q20_자전거_시간주: num("tr_bike")||"",
+    Q20_전기자전거PM_시간주: num("tr_pm")||"",
+    Q20_전기차_시간주: num("tr_ecar")||"",
+    Q20_내연차_시간주: num("tr_car")||"",
+    Q21_항공_시간년: num("air")||"",
+    Q22_평수: num("area")||"",
+    Q22_제곱미터: num("areaM2")||"",
+    Q23_주거형태: (function(){const h=radioVal("housetype");return h==="apt"?"아파트":h==="house"?"단독주택":h==="multi"?"다세대·연립":"";})(),
+    Q24_전기요금: radioVal("elecbill")!==null?ELEC_LABELS[+radioVal("elecbill")]:"",
+    Q25_난방방식: htV?HEAT[htV].label:"",
+    Q26_난방비: radioVal("heatcost")!==null?COST_LABELS[+radioVal("heatcost")]:"",
+    Q27_태양광: solarLabel,
+    Q28_단열창호: radioVal("insul")===null?"":(radioVal("insul")==="1"?"예":"아니오"),
+    Q29_여가: leisureSel.join(", "),
+    Q30_스키_일: num("ski")||"",
+    Q31_골프_일: num("golf")||"",
+    Q32_여행_일: num("travel")||""
+  };
+
+  lastResult={info,sec,total,rows,raw};
   return lastResult;
 }
 function num2(sel){const el=document.querySelector(sel);if(!el)return 0;let v=parseFloat(el.value);return(isNaN(v)||v<0)?0:v;}
@@ -654,7 +700,8 @@ async function submitResult(){
   const p={
     phase:r.info.phase,phone4:r.info.phone4,gu:r.info.gu,dong:r.info.dong,
     age:r.info.age,sex:r.info.sex,household:r.info.household,spend:r.info.spend,
-    total:r.total,food:r.sec.먹거리,consume:r.sec.소비,transport:r.sec.교통,home:r.sec.주거,leisure:r.sec.여가
+    total:r.total,food:r.sec.먹거리,consume:r.sec.소비,transport:r.sec.교통,home:r.sec.주거,leisure:r.sec.여가,
+    raw:r.raw
   };
   const btn=document.getElementById("submitBtn");btn.disabled=true;btn.textContent="제출 중...";
   try{
