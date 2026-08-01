@@ -635,10 +635,10 @@ function live(){
 
 function render(r){
   document.getElementById("totalV").innerHTML=`${fmt(r.total,2)}<small> tCO₂eq</small>`;
-  const worldAvg=6.3, target=2.5;
-  const pw=((r.total-worldAvg)/worldAvg*100), pt=((r.total-target)/target*100);
+  const worldAvg=6.3, suwonAvg=4.8, target=2.5;
+  const pw=((r.total-worldAvg)/worldAvg*100), ps=((r.total-suwonAvg)/suwonAvg*100), pt=((r.total-target)/target*100);
   document.getElementById("cmpV").innerHTML=
-    `세계 평균(6.3톤) 대비 ${pw>=0?"+":""}${pw.toFixed(0)}%<br>1.5℃ 목표(2.5톤) 대비 ${pt>=0?"+":""}${pt.toFixed(0)}%`;
+    `세계 평균(6.3톤) 대비 ${pw>=0?"+":""}${pw.toFixed(0)}%<br>수원시민 평균(4.8톤) 대비 ${ps>=0?"+":""}${ps.toFixed(0)}%<br>1.5℃ 목표(2.5톤) 대비 ${pt>=0?"+":""}${pt.toFixed(0)}%`;
   const sE=Object.entries(r.sec);const sMax=Math.max(...sE.map(e=>Math.abs(e[1])),0.0001);
   const cls=["","b2","b3","b4","b5"];
   document.getElementById("sectorBars").innerHTML=sE.map((e,i)=>`
