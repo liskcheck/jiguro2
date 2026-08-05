@@ -141,7 +141,7 @@ footer{text-align:center;font-size:.78rem;color:var(--ink-soft);margin-top:36px;
 
 <div class="notice">
   <span class="ico">ⓘ</span>
-  <span>'지난 1년간(최근 1년)'은 <b>2025년 8월 18일 ~ 2026년 8월 17일</b>을 말합니다. '일주일에 몇 번/몇 시간'으로 묻는 문항은 평소 한 주를 기준으로 답해 주세요.</span>
+  <span>'지난 1년간(최근 1년)'은 <b>2025년 8월 25일 ~ 2026년 8월 24일</b>을 말합니다. '일주일에 몇 번/몇 시간'으로 묻는 문항은 평소 한 주를 기준으로 답해 주세요.</span>
 </div>
 
 <!-- 기초정보 -->
@@ -149,23 +149,23 @@ footer{text-align:center;font-size:.78rem;color:var(--ink-soft);margin-top:36px;
   <div class="card-head"><span class="sec-ico">👤</span><h2>기초정보</h2></div>
   <div class="card-body">
     <div class="q">
-      <div class="q-label"><span class="q-num">Q1.</span> 전화번호 뒷자리 4자리</div>
-      <div class="q-desc">실천 전과 후를 같은 번호로 적으면 나의 변화를 비교해 드려요. (개인 식별용이 아니라 전후 매칭용입니다)</div>
+      <div class="q-label"> 전화번호 뒷자리 4자리</div>
+      <div class="q-desc">개인 식별용이 아니라 전후 매칭용이에요.</div>
       <input type="tel" id="phone4" inputmode="numeric" maxlength="4" class="inline" placeholder="예: 1234">
     </div>
     <div class="q">
-      <div class="q-label"><span class="q-num">Q2.</span> 수원시 어느 구에 사시나요?</div>
+      <div class="q-label"><span class="q-num">Q1.</span> 수원시 어느 구에 사시나요?</div>
       <select id="gu" onchange="fillDong()">
         <option value="">선택하세요</option>
         <option>장안구</option><option>권선구</option><option>팔달구</option><option>영통구</option>
       </select>
     </div>
     <div class="q">
-      <div class="q-label"><span class="q-num">Q3.</span> 어느 동에 사시나요?</div>
+      <div class="q-label"><span class="q-num">Q2.</span> 어느 동에 사시나요?</div>
       <select id="dong"><option value="">먼저 구를 선택하세요</option></select>
     </div>
     <div class="q">
-      <div class="q-label"><span class="q-num">Q4.</span> 나이(또는 연령대)를 알려 주세요.</div>
+      <div class="q-label"><span class="q-num">Q3.</span> 나이(또는 연령대)를 알려 주세요.</div>
       <div class="opts row" data-radio="age">
         <label class="opt"><input type="radio" name="age" value="10대"> 10대</label>
         <label class="opt"><input type="radio" name="age" value="20대"> 20대</label>
@@ -177,18 +177,18 @@ footer{text-align:center;font-size:.78rem;color:var(--ink-soft);margin-top:36px;
       </div>
     </div>
     <div class="q">
-      <div class="q-label"><span class="q-num">Q5.</span> 성별</div>
+      <div class="q-label"><span class="q-num">Q4.</span> 성별</div>
       <div class="opts row" data-radio="sex">
         <label class="opt"><input type="radio" name="sex" value="여성"> 여성</label>
         <label class="opt"><input type="radio" name="sex" value="남성"> 남성</label>
       </div>
     </div>
     <div class="q">
-      <div class="q-label"><span class="q-num">Q6.</span> 본인을 포함해 몇 명이 함께 사시나요?</div>
+      <div class="q-label"><span class="q-num">Q5.</span> 본인을 포함해 몇 명이 함께 사시나요?</div>
       <div class="unit-row"><input type="number" id="household" class="inline" min="1" step="1" value="1" oninput="live()"><span class="u">명</span></div>
     </div>
     <div class="q">
-      <div class="q-label"><span class="q-num">Q7.</span> 한 달에 평균 얼마를 소비하시나요? <span class="tip" data-tip="가구당 월평균 소비지출액입니다. 참고용으로 수집합니다.">?</span></div>
+      <div class="q-label"><span class="q-num">Q6.</span> 한 달에 평균 얼마를 소비하시나요? <span class="tip" data-tip="가구당 월평균 소비지출액입니다. 참고용으로 수집합니다.">?</span></div>
       <div class="opts row" data-radio="spend">
         <label class="opt"><input type="radio" name="spend" value="100만원 이하"> 100만 원 이하</label>
         <label class="opt"><input type="radio" name="spend" value="101~200만원"> 101~200만 원</label>
@@ -206,7 +206,7 @@ footer{text-align:center;font-size:.78rem;color:var(--ink-soft);margin-top:36px;
   <div class="card-head"><span class="sec-ico">🍽️</span><h2>먹거리</h2><span class="live" id="h-food">0 tCO₂eq</span></div>
   <div class="card-body">
     <div class="q">
-      <div class="q-label"><span class="q-num">Q8.</span> 평소 식사와 가장 비슷한 것을 골라 주세요.</div>
+      <div class="q-label"><span class="q-num">Q7.</span> 평소 식사와 가장 비슷한 것을 골라 주세요.</div>
       <div class="opts" data-radio="diet">
         <label class="opt"><input type="radio" name="diet" value="1.24"> 고기를 매일 먹는다</label>
         <label class="opt"><input type="radio" name="diet" value="0.8"> 일주일에 세 번 정도 먹는다</label>
@@ -214,32 +214,32 @@ footer{text-align:center;font-size:.78rem;color:var(--ink-soft);margin-top:36px;
       </div>
     </div>
     <div class="q">
-      <div class="q-label"><span class="q-num">Q9.</span> 하루에 커피를 몇 잔 정도 마시나요?</div>
+      <div class="q-label"><span class="q-num">Q8.</span> 하루에 커피를 몇 잔 정도 마시나요?</div>
       <div class="unit-row"><input type="number" id="coffee" class="inline" min="0" step="1" placeholder="예: 1" oninput="live()"><span class="u">잔 / 일</span></div>
     </div>
     <div class="q">
-      <div class="q-label"><span class="q-num">Q10.</span> 일주일에 외식이나 배달 음식을 몇 번 정도 드시나요?</div>
+      <div class="q-label"><span class="q-num">Q9.</span> 일주일에 외식이나 배달 음식을 몇 번 정도 드시나요?</div>
       <div class="unit-row"><input type="number" id="eatout" class="inline" min="0" step="1" placeholder="예: 1" oninput="live()"><span class="u">회 / 주</span></div>
     </div>
     <div class="q">
-      <div class="q-label"><span class="q-num">Q11.</span> 먹다 남기거나 상해서 버리는 음식이 자주 생기나요?</div>
+      <div class="q-label"><span class="q-num">Q10.</span> 먹다 남기거나 상해서 버리는 음식이 자주 생기나요?</div>
       <div class="opts row" data-radio="foodwaste">
         <label class="opt"><input type="radio" name="foodwaste" value="0.001"> 예</label>
         <label class="opt"><input type="radio" name="foodwaste" value="0"> 아니오</label>
       </div>
     </div>
     <div class="q">
-      <div class="q-label"><span class="q-num">Q12.</span> 일주일에 몇 번, 일회용 컵 대신 텀블러나 개인 컵을 사용하시나요?</div>
+      <div class="q-label"><span class="q-num">Q11.</span> 일주일에 몇 번, 일회용 컵 대신 텀블러나 개인 컵을 사용하시나요?</div>
       <div class="q-desc">이미 실천 중이라면 현재 배출량이 그만큼 줄어듭니다.</div>
       <div class="unit-row"><input type="number" id="cup" class="inline" min="0" step="1" placeholder="예: 1" oninput="live()"><span class="u">회 / 주</span></div>
     </div>
     <div class="q">
-      <div class="q-label"><span class="q-num">Q13.</span> 음식 포장 시, 일주일에 몇 번 다회용기를 사용하시나요?</div>
+      <div class="q-label"><span class="q-num">Q12.</span> 음식 포장 시, 일주일에 몇 번 다회용기를 사용하시나요?</div>
       <div class="q-desc">집에 있는 그릇·용기를 가게에 가져가 담아 오는 것을 말해요.</div>
       <div class="unit-row"><input type="number" id="container" class="inline" min="0" step="1" placeholder="예: 1" oninput="live()"><span class="u">회 / 주</span></div>
     </div>
     <div class="q">
-      <div class="q-label"><span class="q-num">Q14.</span> 일주일에 몇 번, 비닐봉투 대신 장바구니나 에코백을 사용하시나요?</div>
+      <div class="q-label"><span class="q-num">Q13.</span> 일주일에 몇 번, 비닐봉투 대신 장바구니나 에코백을 사용하시나요?</div>
       <div class="unit-row"><input type="number" id="bag" class="inline" min="0" step="1" placeholder="예: 1" oninput="live()"><span class="u">회 / 주</span></div>
     </div>
   </div>
@@ -250,17 +250,17 @@ footer{text-align:center;font-size:.78rem;color:var(--ink-soft);margin-top:36px;
   <div class="card-head"><span class="sec-ico">🛍️</span><h2>소비</h2><span class="live" id="h-consume">0 tCO₂eq</span></div>
   <div class="card-body">
     <div class="q">
-      <div class="q-label"><span class="q-num">Q15.</span> 최근 1년(2025.8.18~2026.8.17) 동안 옷을 몇 벌이나 새로 사셨나요?</div>
+      <div class="q-label"><span class="q-num">Q14.</span> 최근 1년(2025.8.25~2026.8.24) 동안 옷을 몇 벌이나 새로 사셨나요?</div>
       <div class="q-desc">신발과 속옷은 빼고 세어 주세요.</div>
       <div class="unit-row"><input type="number" id="clothes" class="inline" min="0" step="1" placeholder="예: 1" oninput="live()"><span class="u">벌</span></div>
     </div>
     <div class="q">
-      <div class="q-label"><span class="q-num">Q16.</span> 집에 있는 전자제품을 골라 개수를 적어 주세요.</div>
+      <div class="q-label"><span class="q-num">Q15.</span> 집에 있는 전자제품을 골라 개수를 적어 주세요.</div>
       <div class="q-desc">가지고 있는 것만 체크하고 대수를 입력하세요 (기본 1대).</div>
       <div class="chk-grid" id="applianceGrid"></div>
     </div>
     <div class="q">
-      <div class="q-label"><span class="q-num">Q18·19.</span> 반려동물을 키우시나요?</div>
+      <div class="q-label"><span class="q-num">Q16·17.</span> 반려동물을 키우시나요?</div>
       <div class="subgrid">
         <div class="unit-row"><span class="u">🐱 고양이</span><input type="number" id="cat" class="inline" min="0" step="1" placeholder="0" oninput="live()"><span class="u">마리</span></div>
         <div class="unit-row"><span class="u">🐶 강아지</span><input type="number" id="dog" class="inline" min="0" step="1" placeholder="0" oninput="live()"><span class="u">마리</span></div>
@@ -274,13 +274,13 @@ footer{text-align:center;font-size:.78rem;color:var(--ink-soft);margin-top:36px;
   <div class="card-head"><span class="sec-ico">🚌</span><h2>교통</h2><span class="live" id="h-transport">0 tCO₂eq</span></div>
   <div class="card-body">
     <div class="q">
-      <div class="q-label"><span class="q-num">Q17.</span> 평소 일주일 동안 각 교통수단을 몇 시간이나 이용하시나요?</div>
+      <div class="q-label"><span class="q-num">Q18.</span> 평소 일주일 동안 각 교통수단을 몇 시간이나 이용하시나요?</div>
       <div class="q-desc">30분은 0.5시간으로 적어 주세요. 예: 매일 왕복 1시간씩 5일 버스를 타면 5시간. 이용하는 것만 적으면 됩니다.</div>
       <div class="time-grid" id="transportGrid"></div>
       <div class="q-desc" style="color:var(--amber);margin-top:8px;">* 전기자전거·PM은 공식 원단위가 아직 없어 참고 입력(계산 미포함)입니다.</div>
     </div>
     <div class="q">
-      <div class="q-label"><span class="q-num">Q18.</span> 최근 1년(2025.8.18~2026.8.17) 동안 비행기를 몇 시간이나 타셨나요?</div>
+      <div class="q-label"><span class="q-num">Q19.</span> 최근 1년(2025.8.25~2026.8.24) 동안 비행기를 몇 시간이나 타셨나요?</div>
       <div class="q-desc">편도 기준으로 더해 주세요. 예: 제주 왕복은 약 2시간.</div>
       <div class="unit-row"><input type="number" id="air" class="inline" min="0" step="0.5" placeholder="예: 1" oninput="live()"><span class="u">시간 / 년</span></div>
     </div>
@@ -292,14 +292,14 @@ footer{text-align:center;font-size:.78rem;color:var(--ink-soft);margin-top:36px;
   <div class="card-head"><span class="sec-ico">🏠</span><h2>주거</h2><span class="live" id="h-home">0 tCO₂eq</span></div>
   <div class="card-body">
     <div class="q">
-      <div class="q-label"><span class="q-num">Q19.</span> 지금 사시는 집은 몇 평인가요?</div>
+      <div class="q-label"><span class="q-num">Q20.</span> 지금 사시는 집은 몇 평인가요?</div>
       <div class="q-desc">평수를 모르면 ㎡로 적으셔도 돼요. 1평은 약 3.3㎡예요.</div>
       <div class="unit-row"><input type="number" id="area" class="inline" min="0" step="1" placeholder="예: 24" oninput="live()"><span class="u">평</span>
         <span style="color:var(--ink-soft);font-size:.85rem;">또는</span>
         <input type="number" id="areaM2" class="inline" min="0" step="1" placeholder="예: 80" oninput="live()"><span class="u">㎡</span></div>
     </div>
     <div class="q">
-      <div class="q-label"><span class="q-num">Q20.</span> 어떤 집에 사시나요?</div>
+      <div class="q-label"><span class="q-num">Q21.</span> 어떤 집에 사시나요?</div>
       <div class="opts row" data-radio="housetype">
         <label class="opt"><input type="radio" name="housetype" value="apt"> 아파트</label>
         <label class="opt"><input type="radio" name="housetype" value="house"> 단독주택</label>
@@ -307,7 +307,7 @@ footer{text-align:center;font-size:.78rem;color:var(--ink-soft);margin-top:36px;
       </div>
     </div>
     <div class="q">
-      <div class="q-label"><span class="q-num">Q21.</span> 한 달 평균 전기요금은 얼마 정도인가요? <span class="tip" data-tip="전기요금은 많이 쓸수록 단가가 비싸지는 '누진제'가 적용돼요. 그래서 요금이 올라가면 배출량이 더 가파르게 늘어납니다.">?</span></div>
+      <div class="q-label"><span class="q-num">Q22.</span> 한 달 평균 전기요금은 얼마 정도인가요? <span class="tip" data-tip="전기요금은 많이 쓸수록 단가가 비싸지는 '누진제'가 적용돼요. 그래서 요금이 올라가면 배출량이 더 가파르게 늘어납니다.">?</span></div>
       <div class="q-desc">가정용 전기는 <b>누진제</b>가 적용돼요. 많이 쓸수록 1kWh당 요금이 비싸져서, 요금이 오를수록 사용량과 배출량이 더 크게 늘어납니다. <span class="toggle-link" onclick="toggleNuj()" style="color:var(--sky);cursor:pointer;text-decoration:underline;font-weight:600;">누진 단계 자세히 보기</span></div>
       <div id="nujBox" style="display:none;background:var(--sky-soft);border:1px solid #c5ddf2;border-radius:10px;padding:12px 14px;margin:6px 0 10px;font-size:.82rem;line-height:1.75;color:#2b4a63;">
         <b>주택용 저압 3단계 누진제 (2025년 기준)</b><br>
@@ -318,15 +318,15 @@ footer{text-align:center;font-size:.78rem;color:var(--ink-soft);margin-top:36px;
       <div class="opts row" data-radio="elecbill" id="elecbillOpts"></div>
     </div>
     <div class="q">
-      <div class="q-label"><span class="q-num">Q22.</span> 겨울에 난방은 어떤 방식으로 하시나요? <span class="tip" data-tip="집집마다 가스보일러가 있으면 '개별 가스보일러', 아파트 단지에 열이 공급되면 '지역난방'이에요.">?</span></div>
+      <div class="q-label"><span class="q-num">Q23.</span> 겨울에 난방은 어떤 방식으로 하시나요? <span class="tip" data-tip="집집마다 가스보일러가 있으면 '개별 가스보일러', 아파트 단지에 열이 공급되면 '지역난방'이에요.">?</span></div>
       <div class="opts" data-radio="heattype" id="heattypeOpts"></div>
     </div>
     <div class="q">
-      <div class="q-label"><span class="q-num">Q23.</span> 겨울철(11~2월) 한 달 평균 난방비는 얼마 정도인가요?</div>
+      <div class="q-label"><span class="q-num">Q24.</span> 겨울철(11~2월) 한 달 평균 난방비는 얼마 정도인가요?</div>
       <div class="opts row" data-radio="heatcost" id="heatcostOpts"></div>
     </div>
     <div class="q">
-      <div class="q-label"><span class="q-num">Q24.</span> 태양광으로 만든 전기를 사용하시나요?</div>
+      <div class="q-label"><span class="q-num">Q25.</span> 태양광으로 만든 전기를 사용하시나요?</div>
       <div class="q-desc">해당하는 것을 모두 선택하세요.</div>
       <div class="opts">
         <label class="opt"><input type="checkbox" class="solarChk" value="none"> 사용 안 함</label>
@@ -335,7 +335,7 @@ footer{text-align:center;font-size:.78rem;color:var(--ink-soft);margin-top:36px;
       </div>
     </div>
     <div class="q">
-      <div class="q-label"><span class="q-num">Q25.</span> 지금 사시는 집에 단열이나 창문 교체 공사를 한 적이 있나요?</div>
+      <div class="q-label"><span class="q-num">Q26.</span> 지금 사시는 집에 단열이나 창문 교체 공사를 한 적이 있나요?</div>
       <div class="opts row" data-radio="insul">
         <label class="opt"><input type="radio" name="insul" value="1"> 예</label>
         <label class="opt"><input type="radio" name="insul" value="0"> 아니오</label>
@@ -349,19 +349,19 @@ footer{text-align:center;font-size:.78rem;color:var(--ink-soft);margin-top:36px;
   <div class="card-head"><span class="sec-ico">🎮</span><h2>여가</h2><span class="live" id="h-leisure">0 tCO₂eq</span></div>
   <div class="card-body">
     <div class="q">
-      <div class="q-label"><span class="q-num">Q26.</span> 평소 여가 시간을 주로 어떻게 보내시나요? (2가지 선택)</div>
+      <div class="q-label"><span class="q-num">Q27.</span> 평소 여가 시간을 주로 어떻게 보내시나요? (2가지 선택)</div>
       <div class="chk-grid" id="leisureGrid"></div>
     </div>
     <div class="q">
-      <div class="q-label"><span class="q-num">Q27.</span> 최근 1년(2025.8.18~2026.8.17) 동안 스키장에 며칠이나 다녀오셨나요?</div>
+      <div class="q-label"><span class="q-num">Q28.</span> 최근 1년(2025.8.25~2026.8.24) 동안 스키장에 며칠이나 다녀오셨나요?</div>
       <div class="unit-row"><input type="number" id="ski" class="inline" min="0" step="1" placeholder="예: 1" oninput="live()"><span class="u">일</span></div>
     </div>
     <div class="q">
-      <div class="q-label"><span class="q-num">Q28.</span> 최근 1년(2025.8.18~2026.8.17) 동안 골프장에 며칠이나 다녀오셨나요?</div>
+      <div class="q-label"><span class="q-num">Q29.</span> 최근 1년(2025.8.25~2026.8.24) 동안 골프장에 며칠이나 다녀오셨나요?</div>
       <div class="unit-row"><input type="number" id="golf" class="inline" min="0" step="1" placeholder="예: 1" oninput="live()"><span class="u">일</span></div>
     </div>
     <div class="q">
-      <div class="q-label"><span class="q-num">Q29.</span> 최근 1년(2025.8.18~2026.8.17) 동안 여행지에서 며칠이나 숙박하셨나요?</div>
+      <div class="q-label"><span class="q-num">Q30.</span> 최근 1년(2025.8.25~2026.8.24) 동안 여행지에서 며칠이나 숙박하셨나요?</div>
       <div class="unit-row"><input type="number" id="travel" class="inline" min="0" step="1" placeholder="예: 1" oninput="live()"><span class="u">일</span></div>
     </div>
   </div>
@@ -545,8 +545,8 @@ function computeAll(){
   if(ht&&hc!==null){const H=HEAT[ht];const v=H.f*H.use[+hc];sec.주거+=v;rows.push(["주거","난방",`${H.label}·${COST_LABELS[+hc]}`,v]);}
   const solarMini=!!document.querySelector('.solarChk[value="mini"]:checked');
   const solarRoof=!!document.querySelector('.solarChk[value="roof"]:checked');
-  if(solarMini){const v=-0.136;sec.주거+=v;rows.push(["주거","베란다 미니태양광","설치",v]);}
-  if(solarRoof){const v=-0.501;sec.주거+=v;rows.push(["주거","옥상 태양광","설치",v]);}
+  if(solarMini){const v=-0.1356;sec.주거+=v;rows.push(["주거","베란다 미니태양광","설치",v]);}
+  if(solarRoof){const v=-1.356;sec.주거+=v;rows.push(["주거","옥상 태양광","설치",v]);}
   const insul=parseFloat(radioVal("insul"))||0;
   if(insul&&area){const v=-(area*0.003);sec.주거+=v;rows.push(["주거","단열·창호 개선","예",v]);}
 
@@ -635,10 +635,10 @@ function live(){
 
 function render(r){
   document.getElementById("totalV").innerHTML=`${fmt(r.total,2)}<small> tCO₂eq</small>`;
-  const worldAvg=6.3, suwonAvg=4.8, target=2.5;
-  const pw=((r.total-worldAvg)/worldAvg*100), ps=((r.total-suwonAvg)/suwonAvg*100), pt=((r.total-target)/target*100);
+  const worldAvg=6.3, koreaTarget=5.9;
+  const pw=((r.total-worldAvg)/worldAvg*100), pk=((r.total-koreaTarget)/koreaTarget*100);
   document.getElementById("cmpV").innerHTML=
-    `세계 평균(6.3톤) 대비 ${pw>=0?"+":""}${pw.toFixed(0)}%<br>수원시민 평균(4.8톤) 대비 ${ps>=0?"+":""}${ps.toFixed(0)}%<br>1.5℃ 목표(2.5톤) 대비 ${pt>=0?"+":""}${pt.toFixed(0)}%`;
+    `세계 평균(6.3톤) 대비 ${pw>=0?"+":""}${pw.toFixed(0)}%<br>대한민국 1인당 목표(5.9톤) 대비 ${pk>=0?"+":""}${pk.toFixed(0)}%`;
   const sE=Object.entries(r.sec);const sMax=Math.max(...sE.map(e=>Math.abs(e[1])),0.0001);
   const cls=["","b2","b3","b4","b5"];
   document.getElementById("sectorBars").innerHTML=sE.map((e,i)=>`
