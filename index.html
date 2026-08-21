@@ -127,6 +127,7 @@ footer{text-align:center;font-size:.78rem;color:var(--ink-soft);margin-top:36px;
 @media print{body{background:#fff;}.btn-row,.no-print{display:none!important;}#results{display:block!important;}
   section.card{box-shadow:none;break-inside:avoid;}header.hero{background:var(--pine);-webkit-print-color-adjust:exact;print-color-adjust:exact;}}
 @media(prefers-reduced-motion:reduce){.bar-fill{transition:none;}html{scroll-behavior:auto;}}
+.q-label.chal{color:#188f5c;}
 </style>
 </head>
 <body>
@@ -205,7 +206,7 @@ footer{text-align:center;font-size:.78rem;color:var(--ink-soft);margin-top:36px;
   <div class="card-head"><span class="sec-ico">🍽️</span><h2>먹거리</h2><span class="live" id="h-food">0 tCO₂eq</span></div>
   <div class="card-body">
     <div class="q">
-      <div class="q-label"><span class="q-num">Q7.</span> 평소 식사와 가장 비슷한 것을 골라 주세요.</div>
+      <div class="q-label chal"><span class="q-num">Q7.</span> 평소 식사와 가장 비슷한 것을 골라 주세요.</div>
       <div class="opts" data-radio="diet">
         <label class="opt"><input type="radio" name="diet" value="1.24"> 고기를 매일 먹는다</label>
         <label class="opt"><input type="radio" name="diet" value="0.8"> 일주일에 세 번 정도 먹는다</label>
@@ -213,32 +214,32 @@ footer{text-align:center;font-size:.78rem;color:var(--ink-soft);margin-top:36px;
       </div>
     </div>
     <div class="q">
-      <div class="q-label"><span class="q-num">Q8.</span> 하루에 커피를 몇 잔 정도 마시나요?</div>
+      <div class="q-label chal"><span class="q-num">Q8.</span> 하루에 커피를 몇 잔 정도 마시나요?</div>
       <div class="unit-row"><input type="number" id="coffee" class="inline" min="0" step="1" placeholder="예: 1" oninput="live()"><span class="u">잔 / 일</span></div>
     </div>
     <div class="q">
-      <div class="q-label"><span class="q-num">Q9.</span> 일주일에 외식이나 배달 음식을 몇 번 정도 드시나요?</div>
+      <div class="q-label chal"><span class="q-num">Q9.</span> 일주일에 외식이나 배달 음식을 몇 번 정도 드시나요?</div>
       <div class="unit-row"><input type="number" id="eatout" class="inline" min="0" step="1" placeholder="예: 1" oninput="live()"><span class="u">회 / 주</span></div>
     </div>
     <div class="q">
-      <div class="q-label"><span class="q-num">Q10.</span> 먹다 남기거나 상해서 버리는 음식이 자주 생기나요?</div>
+      <div class="q-label chal"><span class="q-num">Q10.</span> 먹다 남기거나 상해서 버리는 음식이 자주 생기나요?</div>
       <div class="opts row" data-radio="foodwaste">
         <label class="opt"><input type="radio" name="foodwaste" value="0.001"> 예</label>
         <label class="opt"><input type="radio" name="foodwaste" value="0"> 아니오</label>
       </div>
     </div>
     <div class="q">
-      <div class="q-label"><span class="q-num">Q11.</span> 일주일에 몇 번, 일회용 컵 대신 텀블러나 개인 컵을 사용하시나요?</div>
+      <div class="q-label chal"><span class="q-num">Q11.</span> 일주일에 몇 번, 일회용 컵 대신 텀블러나 개인 컵을 사용하시나요?</div>
       <div class="q-desc">이미 실천 중이라면 현재 배출량이 그만큼 줄어듭니다.</div>
       <div class="unit-row"><input type="number" id="cup" class="inline" min="0" step="1" placeholder="예: 1" oninput="live()"><span class="u">회 / 주</span></div>
     </div>
     <div class="q">
-      <div class="q-label"><span class="q-num">Q12.</span> 음식 포장 시, 일주일에 몇 번 다회용기를 사용하시나요?</div>
+      <div class="q-label chal"><span class="q-num">Q12.</span> 음식 포장 시, 일주일에 몇 번 다회용기를 사용하시나요?</div>
       <div class="q-desc">집에 있는 그릇·용기를 가게에 가져가 담아 오는 것을 말해요.</div>
       <div class="unit-row"><input type="number" id="container" class="inline" min="0" step="1" placeholder="예: 1" oninput="live()"><span class="u">회 / 주</span></div>
     </div>
     <div class="q">
-      <div class="q-label"><span class="q-num">Q13.</span> 일주일에 몇 번, 비닐봉투 대신 장바구니나 에코백을 사용하시나요?</div>
+      <div class="q-label chal"><span class="q-num">Q13.</span> 일주일에 몇 번, 비닐봉투 대신 장바구니나 에코백을 사용하시나요?</div>
       <div class="unit-row"><input type="number" id="bag" class="inline" min="0" step="1" placeholder="예: 1" oninput="live()"><span class="u">회 / 주</span></div>
     </div>
   </div>
@@ -249,12 +250,12 @@ footer{text-align:center;font-size:.78rem;color:var(--ink-soft);margin-top:36px;
   <div class="card-head"><span class="sec-ico">🛍️</span><h2>소비</h2><span class="live" id="h-consume">0 tCO₂eq</span></div>
   <div class="card-body">
     <div class="q">
-      <div class="q-label"><span class="q-num">Q14.</span> 최근 1년(2025.8.25~2026.8.24) 동안 옷을 몇 벌이나 새로 사셨나요?</div>
+      <div class="q-label chal"><span class="q-num">Q14.</span> 최근 1년(2025.8.25~2026.8.24) 동안 옷을 몇 벌이나 새로 사셨나요?</div>
       <div class="q-desc">신발과 속옷은 빼고 세어 주세요.</div>
       <div class="unit-row"><input type="number" id="clothes" class="inline" min="0" step="1" placeholder="예: 1" oninput="live()"><span class="u">벌</span></div>
     </div>
     <div class="q">
-      <div class="q-label"><span class="q-num">Q15.</span> 집에 있는 전자제품을 골라 개수를 적어 주세요.</div>
+      <div class="q-label chal"><span class="q-num">Q15.</span> 집에 있는 전자제품을 골라 개수를 적어 주세요.</div>
       <div class="q-desc">가지고 있는 것만 체크하고 대수를 입력하세요 (기본 1대).</div>
       <div class="chk-grid" id="applianceGrid"></div>
     </div>
@@ -273,13 +274,13 @@ footer{text-align:center;font-size:.78rem;color:var(--ink-soft);margin-top:36px;
   <div class="card-head"><span class="sec-ico">🚌</span><h2>교통</h2><span class="live" id="h-transport">0 tCO₂eq</span></div>
   <div class="card-body">
     <div class="q">
-      <div class="q-label"><span class="q-num">Q18.</span> 평소 일주일 동안 각 교통수단을 몇 시간이나 이용하시나요?</div>
+      <div class="q-label chal"><span class="q-num">Q18.</span> 평소 일주일 동안 각 교통수단을 몇 시간이나 이용하시나요?</div>
       <div class="q-desc">30분은 0.5시간으로 적어 주세요. 예: 매일 왕복 1시간씩 5일 버스를 타면 5시간. 이용하는 것만 적으면 됩니다.</div>
       <div class="time-grid" id="transportGrid"></div>
       <div class="q-desc" style="color:var(--amber);margin-top:8px;">* 전기자전거·PM은 공식 원단위가 아직 없어 참고 입력(계산 미포함)입니다.</div>
     </div>
     <div class="q">
-      <div class="q-label"><span class="q-num">Q19.</span> 최근 1년(2025.8.25~2026.8.24) 동안 비행기를 몇 시간이나 타셨나요?</div>
+      <div class="q-label chal"><span class="q-num">Q19.</span> 최근 1년(2025.8.25~2026.8.24) 동안 비행기를 몇 시간이나 타셨나요?</div>
       <div class="q-desc">편도 기준으로 더해 주세요. 예: 제주 왕복은 약 2시간.</div>
       <div class="unit-row"><input type="number" id="air" class="inline" min="0" step="0.5" placeholder="예: 1" oninput="live()"><span class="u">시간 / 년</span></div>
     </div>
@@ -348,7 +349,7 @@ footer{text-align:center;font-size:.78rem;color:var(--ink-soft);margin-top:36px;
   <div class="card-head"><span class="sec-ico">🎮</span><h2>여가</h2><span class="live" id="h-leisure">0 tCO₂eq</span></div>
   <div class="card-body">
     <div class="q">
-      <div class="q-label"><span class="q-num">Q27.</span> 평소 여가 시간을 주로 어떻게 보내시나요? (2가지 선택)</div>
+      <div class="q-label chal"><span class="q-num">Q27.</span> 평소 여가 시간을 주로 어떻게 보내시나요? (2가지 선택)</div>
       <div class="chk-grid" id="leisureGrid"></div>
     </div>
     <div class="q">
